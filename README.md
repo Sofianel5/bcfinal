@@ -2,10 +2,14 @@
 Creating an **Artificial Neural Network (ANN)** through the lens of calculus and precalculus.
 
 ## What is an Artificial Neural Network (ANN)?
-
+An **ANN** is 
 
 ## How does our ANN work?
+Please reference the **Glossary of Functions** below for more info on the referenced functions.
 
+## What calculus principles are involved in this project?
+
+## What precalculus principles are involved in this project?
 
 ## Glossary of Functions
 `encode_one_hot`:  
@@ -23,4 +27,3 @@ Creating an **Artificial Neural Network (ANN)** through the lens of calculus and
 `backward`:  
 
 `gen_data`:  
-  
