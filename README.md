@@ -8,11 +8,11 @@ Creating an **Artificial Neural Network (ANN)** through the lens of calculus and
 
 
 ## Glossary of Functions
-`encode_one_hot`--
-`add_bias` --
-`init_weight` --
-`forward` --
-`predict` --
-`compute_loss` --
-`backward` --
-`gen_data` -- 
+`encode_one_hot`:  
+`add_bias`:  
+`init_weight`:  
+`forward`:  
+`predict`:  
+`compute_loss`:  
+`backward`:  
+`gen_data`:  
