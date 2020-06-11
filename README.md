@@ -2,6 +2,9 @@
 Creating an **Artificial Neural Network (ANN)** through the lens of calculus and precalculus.
 
 ## How to run our project
+Make sure you have python 3 installed
+`$ pip install -r requirements.txt`
+`$ python3 mnist_nn.py`
 
 
 ## What is an Artificial Neural Network (ANN)?
