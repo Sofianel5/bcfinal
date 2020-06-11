@@ -13,8 +13,11 @@ Please reference the **Glossary of Functions** below for more info on the refere
 
 ## What Calculus Principles are Involved in This Project?
 
+<<<<<<< HEAD
 ## What Precalculus principles are Involved in This Project?
 
+=======
+>>>>>>> 11e7ed8cab0993caa1db2e84ea9249f2926110aa
 ## Glossary of Functions
 `encode_one_hot`:  
 
