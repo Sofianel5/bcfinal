@@ -21,8 +21,8 @@ An **ANN** is a series of layers made up of weighted nodes (called **neurons**) 
 To train our network, an algorithm called **gradient descent** is applied to the network. Since we know the output of the neural network, we are able to calculate the "loss" of the output, a score representing how wrong the neural network was in its output. For each node in the final layer, we are able to calculate the derivative of the loss function with respect to each of its tunable parameters in turn (the **weights** and the **bias**). We are able to nudge these parameters in the direction in which the derivative of loss with respect to parameter is most negative, thus decreasing the loss of the network. The output of the last layer is the returned output of the network, which should hopefully be the category the input fits best into.
 
 ## How Does Our ANN Work?
-Please check out the **Glossary of Functions** below for more info on the referenced functions.
-Our
+Please check out the **Glossary of Functions** below for more info on the referenced functions. Our program evaluates images of handwritten numbers and returns which numbers they represent.  
+
 
 ## What Calculus Principles are Involved in This Project?
 
