@@ -16,8 +16,6 @@ Please reference the **Glossary of Functions** below for more info on the refere
 
 ## What calculus principles are involved in this project?
 
-## What precalculus principles are involved in this project?
-
 ## Glossary of Functions
 `encode_one_hot`:  
 
