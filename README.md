@@ -5,6 +5,7 @@ Creating an **Artificial Neural Network (ANN)** through the lens of calculus and
 First, make sure you have python3 installed on your computer. It can be downloaded [here](https://www.python.org).  
 
 Then type this line of code into your terminal, in the same directory that you have cloned this repository, to download necessary dataset packages:  
+  
 `pip install -r requirements.txt`  
 
 Finally, run our primary python file in your terminal with this line:
