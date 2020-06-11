@@ -1,8 +1,11 @@
 # Liam Kronman and Sofiane Larbi's Mathematical Project
 Creating an **Artificial Neural Network (ANN)** through the lens of calculus and precalculus.
 
+## How to run our project
+
+
 ## What is an Artificial Neural Network (ANN)?
-An **ANN** is 
+An **ANN** is
 
 ## How does our ANN work?
 Please reference the **Glossary of Functions** below for more info on the referenced functions.
