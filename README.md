@@ -33,7 +33,7 @@ The network is initialized by creating the bias matrix in `add_bias` and the wei
 
 
 ## What Calculus Principles are Involved in This Project?
-Fundamentally, an **ANN** is an optimization algorithm. Much like standard optimization problems, **ANNs** are rooted in derivatives. In fact, the way derivatives are used is similar to Taylor approximations. Taylor approximations grow more accurate as higher dimensional derivatives are calculated and matched to the function. The method of **backpropagation** is very similar to the Taylor method of improving approximations by looking to higher derivatives. 
+Fundamentally, an **ANN** is an optimization algorithm. Much like standard optimization problems, **ANNs** are rooted in derivatives. In fact, the way derivatives are used is similar to Taylor approximations. Taylor approximations grow more accurate as higher dimensional derivatives are calculated and matched to the function. The method of **backpropagation** is very similar to the Taylor method of improving approximations by looking to higher derivatives. Backpropogation starts with the calculation of a loss function, defining how badly the network preformed in its output. Log-loss is usually used as loss function, in `mnist_nn.py` we used the catagorical cross-entropy variant. From there, we go through ever weight and bias term in the last layer of the network, and calculate the 
 
 ## What Precalculus Principles are Involved in This Project?
 
