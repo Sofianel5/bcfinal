@@ -34,7 +34,7 @@ Our program evaluates images of handwritten numbers and returns which numbers th
 
 ## Glossary of Functions
 ### In mnist_nn.py (handwriting recognition)
-`encode_one_hot`:  Converts an enum into a one hot encoding. For instance the number 3, if only 1-10 is possible would become [0,0,1,0,0,0,0,0,0,0]
+`encode_one_hot`:  Converts an enum into a one hot encoding. For instance the number 3, if only 0-9 is possible would become [0,0,0,1,0,0,0,0,0,0]
 
 `add_bias`: Adds a bias term. Similar to the +b in the equation for a line. Depending on the parameter, it appends a bias vector as either a row or a column to an input matrix.
 
@@ -49,3 +49,18 @@ Our program evaluates images of handwritten numbers and returns which numbers th
 `backward`: Computes the gradient of the network using backpropogation. The derivative of the loss function with respect to each parameter in the last layer is calculated. In order to find the partial derivatives in the further (closer to input) layers of the network, we use the chain rule and multiply the derivatives. 
 
 `gen_data`: Downloads and shapes the data from MNIST, a popular dataset of handwriting. Each image is a 28*28 matrix of pixel brightness values. The image is 'flattened' into a one dimentional vector of size 784 when fed into the network. 
+
+### OOP method 
+`ActivationFunction`: `forward` defines the output of the function, while `backward` defines the derivative multiplied by another differential. 
+
+`ReLU`: Rectified linear unit: An almost-linear activation function defined by the piecewise function 0 if x < 0 else x. The nonlinearity of this function allows the neural network to approximate nonlinear functions. Since this function is so simple, it is often used. 
+
+`Sigmoid`: Another activation function defined by 1/(1+e^-x). This function is popular, but not as useful as ReLU since it is less computationally efficient. The fact that its value can be used to easily compute its derivative is useful as well. 
+
+`Tanh`: Hyperbolic tangent function. 
+
+`Add`: Defines the vector add operation.
+
+`Multiply`: Defines the vector multiply operation (dot product).
+
+`Model`: 
