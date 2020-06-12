@@ -28,7 +28,7 @@ def init_weight(n_input, n_hidden, n_output, batch_size):
 def forward(input, w1, w2, w3):
     a1 = T.reshape(input, shape=(input.shape[0], -1))
     a1 = add_bias(a1, False)
-    
+
     z2 = w1.matmul(T.transpose(a1,0,1))
     a2 = T.sigmoid(z2)
     a2 = add_bias(a2, True)
@@ -39,7 +39,7 @@ def forward(input, w1, w2, w3):
 
     z4 = w3.matmul(a3)
     a4 = T.sigmoid(z4)
-    
+
     return a1, z2, a2, z3, a3, z4, a4 
 
 def predict(a4):
@@ -79,7 +79,7 @@ if __name__ == "__main__":
     w1, w2, w3 = init_weight(n_input, (n_hidden_1, n_hidden_2), n_output, batch_size)
     e = 0.001
     a = 0.001
-    epochs = 250 
+    epochs = 20
 
     d1prev = T.zeros(w1.shape)
     d2prev = T.zeros(w2.shape)
@@ -107,4 +107,52 @@ if __name__ == "__main__":
             accuracy = 1 - T.sum(wrong)/batch_size 
             train_acc.append(accuracy.float())
         print('epoch', i, 'training accuracy %.2f' % T.mean(T.tensor(train_acc)).item())
+    fig = plt.figure()
+    ax = fig.add_subplot(111, label='1')
+    ax2 = fig.add_subplot(111, label='2', frame_on=False)
+    print(len(train_loss))
+    ax.plot(train_loss, color='red')
+    ax.set_xlabel('iterations')
+    ax.set_ylabel('loss', color='red')
+    ax.tick_params(axis='y', colors="red")
+    ax2.plot(train_acc, color='blue')
+    ax2.yaxis.tick_right()
+    ax2.set_ylabel('accuracy', color='blue')
+    ax2.yaxis.set_label_position('right')
+    ax2.tick_params(axis='y', colors="blue")
+    ax2.set_xticklabels([])
+    plt.show()
+    for (image, label) in test_data:
+        image = image[0]
+        label = label[0]
+        #print(image)
+        print(label)
+        fig, ax = plt.subplots(1)
+        ax.imshow(T.reshape(image[0], shape=(28,28)), interpolation='nearest')
+        a1, z2, a2, z3, a3, z4, a4 = forward(image, w1, w2, w3)
+        prediction = predict(a4)
+        print(prediction)
+        print(label.float())
+        ax.text(5, 5, 'Predicted: %i, Actual: %i' % (prediction, label.float()), bbox={'facecolor': 'white', 'pad': 10})
+        plt.show()
+        break
+
+
+
+    print('\n-------------\n')
+    print('EVALUATE TEST DATA\n')
+
+    test_acc = []
+    for j, (input, label) in enumerate(test_data):
+        one_hot_label = encode_one_hot(label, num_labels=10)
+        a1, z2, a2, z3, a3, z4, a4 = forward(input,w1,w2,w3)
+        loss = compute_loss(a4, one_hot_label.float())
+
+        predictions = predict(a4)
+        wrong = T.where(predictions != label, T.tensor([1.]), T.tensor([0.]))
+        accuracy = 1 - T.sum(wrong)/batch_size
+
+        test_acc.append(accuracy)
+
+    print('Testing Accuracy %.2f' % T.mean(T.tensor(test_acc)).item())
     
