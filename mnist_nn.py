@@ -110,7 +110,6 @@ if __name__ == "__main__":
     fig = plt.figure()
     ax = fig.add_subplot(111, label='1')
     ax2 = fig.add_subplot(111, label='2', frame_on=False)
-    print(len(train_loss))
     ax.plot(train_loss, color='red')
     ax.set_xlabel('iterations')
     ax.set_ylabel('loss', color='red')
@@ -125,14 +124,10 @@ if __name__ == "__main__":
     for (image, label) in test_data:
         image = image[0]
         label = label[0]
-        #print(image)
-        print(label)
         fig, ax = plt.subplots(1)
         ax.imshow(T.reshape(image[0], shape=(28,28)), interpolation='nearest')
         a1, z2, a2, z3, a3, z4, a4 = forward(image, w1, w2, w3)
         prediction = predict(a4)
-        print(prediction)
-        print(label.float())
         ax.text(5, 5, 'Predicted: %i, Actual: %i' % (prediction, label.float()), bbox={'facecolor': 'white', 'pad': 10})
         plt.show()
         break
