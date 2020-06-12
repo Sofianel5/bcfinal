@@ -30,8 +30,6 @@ Our program evaluates images of handwritten numbers and returns which numbers th
 
 ## What Precalculus Principles are Involved in This Project?
 
-## What precalculus principles are involved in this project?
-
 ## Glossary of Functions
 ### In mnist_nn.py (handwriting recognition)
 `encode_one_hot`:  Converts a value of enumerated type into a one-hot encoding. For instance the number 3, if only the values from 0-9 are possible would become [0,0,0,1,0,0,0,0,0,0] after being run through this function.
