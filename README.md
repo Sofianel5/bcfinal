@@ -34,33 +34,33 @@ Our program evaluates images of handwritten numbers and returns which numbers th
 
 ## Glossary of Functions
 ### In mnist_nn.py (handwriting recognition)
-`encode_one_hot`:  Converts an enum into a one hot encoding. For instance the number 3, if only 0-9 is possible would become [0,0,0,1,0,0,0,0,0,0]
+`encode_one_hot`:  Converts a value of enumerated type into a one-hot encoding. For instance the number 3, if only the values from 0-9 are possible would become [0,0,0,1,0,0,0,0,0,0] after being run through this function.
 
-`add_bias`: Adds a bias term. Similar to the +b in the equation for a line. Depending on the parameter, it appends a bias vector as either a row or a column to an input matrix.
+`add_bias`: Adds a bias term. Similar to the +b in the slope-intercept form for a line (y=mx+b). Depending on the parameter, this function appends a bias vector as either a row or a column to an input matrix.
 
-`init_weight`: Initializes a weight matrix. Returns a touple of the weight matrix for layers 1, 2, and 3. The weights are initialized randomly.
+`init_weight`: Initializes a weight matrix. Returns a tuple of the weight matrix for layers 1, 2, and 3. The weights are initialized randomly.
 
-`forward`: Computes an output vector for the network. For each layer, an output is computed by multiplying the input vector by the weight matrix and adding the bias vector. The output vector a one dimentional vector of shape (10,) and each index corresponds to the networks's belief that the image shown was that number.
+`forward`: Computes an output vector for a layer of the network. For each layer, an output is computed by multiplying the input vector by the weight matrix and adding the bias vector, both of which are stored in each node. The output vector is a one dimensional vector of size 1x10, and each index corresponds to the networks's belief that the image shown was that number.
 
 `predict`: Computes the final output by finding the maximum probability in the output vector.
 
-`compute_loss`: Computes the log loss of the output value using catagorical cross entropy. We use this rather than binary rewards of correct or incorrect because gradient descent requires a differentiable function in order to compute and travel down the gradient. 
+`compute_loss`: Computes the log loss of the output value using categorical cross entropy. We use this rather than binary assessments of "correct" or "incorrect" because gradient descent requires a differentiable function to compute and travel down the gradient. 
 
-`backward`: Computes the gradient of the network using backpropogation. The derivative of the loss function with respect to each parameter in the last layer is calculated. In order to find the partial derivatives in the further (closer to input) layers of the network, we use the chain rule and multiply the derivatives. 
+`backward`: Computes the gradient of the network using backpropogation. Then, calculates the derivative of the loss function with respect to each parameter in the last layer. To find the partial derivatives in the further layers of the network (the layers closer to input), we use the chain rule and multiply the derivatives. 
 
-`gen_data`: Downloads and shapes the data from MNIST, a popular dataset of handwriting. Each image is a 28*28 matrix of pixel brightness values. The image is 'flattened' into a one dimentional vector of size 784 when fed into the network. 
+`gen_data`: Downloads and shapes the data from MNIST, a popular dataset of handwriting images. Each image is a 28x28 matrix of pixel brightness values. The image is "flattened" into a one dimensional vector of size 784 when fed into the network. 
 
 ### OOP method 
 `ActivationFunction`: `forward` defines the output of the function, while `backward` defines the derivative multiplied by another differential. 
 
-`ReLU`: Rectified linear unit: An almost-linear activation function defined by the piecewise function 0 if x < 0 else x. The nonlinearity of this function allows the neural network to approximate nonlinear functions. Since this function is so simple, it is often used. 
+`ReLU`: Short for Rectified Linear Unit. An almost-linear activation function defined by the piecewise function 0 if x < 0 else x. The nonlinearity of this function allows the neural network to approximate nonlinear functions. Since this function is so computationally efficient, it is essentially standard across all kinds of neural networks. 
 
-`Sigmoid`: Another activation function defined by 1/(1+e^-x). This function is popular, but not as useful as ReLU since it is less computationally efficient. The fact that its value can be used to easily compute its derivative is useful as well. 
+`Sigmoid`: Another activation function defined by 1/(1+e^-x). This function is also popular, but not as useful as ReLU since it is less computationally efficient.
 
 `Tanh`: Hyperbolic tangent function. 
 
-`Add`: Defines the vector add operation.
+`Add`: The vector addition operation.
 
-`Multiply`: Defines the vector multiply operation (dot product).
+`Multiply`: The vector multiplication operation (dot product).
 
 `Model`: 
