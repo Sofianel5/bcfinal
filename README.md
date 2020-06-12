@@ -8,7 +8,7 @@ Then type this line of code into your terminal, in the same directory that you h
 
 `pip install -r requirements.txt`  
 
-Finally, run our primary python file in your terminal with this line:
+Finally, run our primary python file by typing this line into your terminal:
 
 `python3 mnist_nn.py`  
 
