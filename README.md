@@ -33,18 +33,19 @@ Our program evaluates images of handwritten numbers and returns which numbers th
 ## What precalculus principles are involved in this project?
 
 ## Glossary of Functions
-`encode_one_hot`:  
+### In mnist_nn.py (handwriting recognition)
+`encode_one_hot`:  Converts an enum into a one hot encoding. For instance the number 3, if only 1-10 is possible would become [0,0,1,0,0,0,0,0,0,0]
 
-`add_bias`:  
+`add_bias`: Adds a bias term. Similar to the +b in the equation for a line. Depending on the parameter, it appends a bias vector as either a row or a column to an input matrix.
 
-`init_weight`:
+`init_weight`: Initializes a weight matrix. Returns a touple of the weight matrix for layers 1, 2, and 3. The weights are initialized randomly.
 
-`forward`:  
+`forward`: Computes an output vector for the network. For each layer, an output is computed by multiplying the input vector by the weight matrix and adding the bias vector. The output vector a one dimentional vector of shape (10,) and each index corresponds to the networks's belief that the image shown was that number.
 
-`predict`:  
+`predict`: Computes the final output by finding the maximum probability in the output vector.
 
-`compute_loss`:  
+`compute_loss`: Computes the log loss of the output value using catagorical cross entropy. We use this rather than binary rewards of correct or incorrect because gradient descent requires a differentiable function in order to compute and travel down the gradient. 
 
-`backward`:  
+`backward`: Computes the gradient of the network using backpropogation. The derivative of the loss function with respect to each parameter in the last layer is calculated. In order to find the partial derivatives in the further (closer to input) layers of the network, we use the chain rule and multiply the derivatives. 
 
-`gen_data`:  
+`gen_data`: Downloads and shapes the data from MNIST, a popular dataset of handwriting. Each image is a 28*28 matrix of pixel brightness values. The image is 'flattened' into a one dimentional vector of size 784 when fed into the network. 
