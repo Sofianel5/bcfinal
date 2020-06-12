@@ -33,6 +33,7 @@ The network is initialized by creating the bias matrix in `add_bias` and the wei
 
 
 ## What Calculus Principles are Involved in This Project?
+Fundamentally, an **ANN** is an optimization algorithm. Much like standard optimization problems, **ANNs** are rooted in derivatives. In fact, the way derivatives are used is similar to Taylor approximations. Taylor approximations grow more and more accurate as higher dimensional derivatives are calculated and matched to the function. 
 
 ## What Precalculus Principles are Involved in This Project?
 
