@@ -14,7 +14,7 @@ Finally, run our primary python file in your terminal with this line:
 
 
 ## What is an Artificial Neural Network (ANN)?
-Imagine you have a bunch of images of dogs and cats, and you want to develop a program that will determine which images are of dogs and which are of cats. This may be harder than you think. Comparing the corresponding pixels of different images to a sort of "platonic ideal" of a dog or a cat is impractical, not only because the images might be of different dimensions, but also because if the pictured pet is not in the *exact* same position as your model cat/dog, you will probably get an incorrect output. For problems like these, that require independently finding connections in data, building an **ANN** may be the most effective solution.  
+Imagine you have a bunch of images of dogs and cats, and you want to develop a program that will determine which images are of dogs and which are of cats. This may be harder than you think. Comparing the corresponding pixels of different images to a sort of "platonic ideal" of a dog or a cat is impractical, not only because the images might be of different dimensions, but also because the pictured pet must be in the *exact* same position as your model cat/dog, or you will probably get an incorrect output. For problems like these, that require independently finding connections in data, building an **ANN** may be the most effective solution.  
 
 ![Neural Network](/static/neuralnetwork.png)
 
