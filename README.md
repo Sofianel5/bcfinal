@@ -23,9 +23,11 @@ An **ANN** is a series of layers made up of weighted nodes (called **neurons**) 
 To train our network, an algorithm called **gradient descent** is applied to the network. Since we know the output of the neural network, we are able to calculate the "loss" of the output, a score representing how wrong the neural network was in its output. For each node in the final layer, we are, in turn, able to calculate the derivative of the loss function with respect to each of its tunable parameters (the **weights** and the **bias**). We are able to nudge these parameters in the direction in which the derivative of loss with respect to parameter is most negative, thus decreasing the loss of the network. The output of the last layer is the returned output of the network, which should hopefully be the category the input fits best into.
 
 ## How Does Our ANN Work?
-`mnist_nn.py` evaluates images of handwritten numbers and returns which numbers they represent. Please check out the **Glossary of Functions** below for more info on the referenced functions. 
+`mnist_nn.py` evaluates images of handwritten numbers and returns which numbers they represent. Please check out the **Glossary of Functions** below for more info on the referenced functions.  
   
-Each image is a 28x28 vector of brightness values. The image is converted into a one-dimensional 784 index long vector and fed into the **ANN** as the input layer. Each node in the input layer is connected to every node in the first hidden layer. The input values are multiplied by a weight matrix and a bias term is added. This process continues until the final layer of the network. In order to increase the accuracy of the network, we calculate a 'loss function' which returns a value representing how wrong the network's prediction is. We find the derviative (gradient) of the loss function and travel modify the paramters of the network so as to travel down the gradient (gradient descent). This increases the accuracy of the network over multiple iterations.
+Each image is a 28x28 vector of brightness values. The image is flattened into a one dimentional 784 index long vector and is fed in as the input layer. Our network has 784 input nodes, 100 hidden neurons, followed by another 100 hidden neurons, and a size 10 output layer. We also decided on a batch size of 50. Using batches rather than feeding each data point separately allows the network to better generalize since 50 samples says more about the dataset than one. We initialize the gradients of each layer as `d1prev`, `d2prev`, `d3prev`, as vectors filled with 0s with the same shape as the weight matrix. When we begin a training iteration, we start by taking our label (the number 0-9 that the image is of) and creating a one hot representation of it (see `encode_one_hot` in the glossary). We feed the image into the network in the `forward` function, where we reshape it into a 784 pixel long flat image, add a bias, and go through the network by matrix multiplying the input by the bias, running the output through the activation function (sigmoid in this case), and adding a bias.  
+
+The network is initialized by creating the bias matrix in `add_bias` and the weight matrix in `init_weight`. These matricies correspond to the the parameters on all the nodes in each layer. Each node in the input layer is connected to every node in the first hidden layer. The input values are multiplied by a weight matrix and a bias term is added. This process continues until the final layer of the network. In order to increase the accuracy of the network, we calculate a 'loss function' which returns a value representing how wrong the network's prediction is. We find the derviative (gradient) of the loss function and travel modify the paramters of the network so as to travel down the gradient (gradient descent). This increases the accuracy of the network over multiple iterations.
 
 
 ## What Calculus Principles are Involved in This Project?
@@ -44,23 +46,23 @@ Each image is a 28x28 vector of brightness values. The image is converted into a
 
 `predict`: Computes the final output by finding the maximum probability in the output vector.
 
-`compute_loss`: Computes the log loss of the output value using categorical cross entropy. We use this rather than binary assessments of "correct" or "incorrect" because gradient descent requires a differentiable function to compute and travel down the gradient. 
+`compute_loss`: Computes the log loss of the output value using categorical cross entropy. We use this rather than binary assessments of "correct" or "incorrect" because gradient descent requires a differentiable function to compute and travel down the gradient.
 
-`backward`: Computes the gradient of the network using backpropogation. Then, calculates the derivative of the loss function with respect to each parameter in the last layer. To find the partial derivatives in the further layers of the network (the layers closer to input), we use the chain rule and multiply the derivatives. 
+`backward`: Computes the gradient of the network using backpropogation. Then, calculates the derivative of the loss function with respect to each parameter in the last layer. To find the partial derivatives in the further layers of the network (the layers closer to input), we use the chain rule and multiply the derivatives.
 
-`gen_data`: Downloads and shapes the data from MNIST, a popular dataset of handwriting images. Each image is a 28x28 matrix of pixel brightness values. The image is "flattened" into a one dimensional vector of size 784 when fed into the network. 
+`gen_data`: Downloads and shapes the data from MNIST, a popular dataset of handwriting images. Each image is a 28x28 matrix of pixel brightness values. The image is "flattened" into a one dimensional vector of size 784 when fed into the network.
 
-### OOP method 
-`ActivationFunction`: `forward` defines the output of the function, while `backward` defines the derivative multiplied by another differential. 
+### OOP method
+`ActivationFunction`: `forward` defines the output of the function, while `backward` defines the derivative multiplied by another differential.
 
-`ReLU`: Short for Rectified Linear Unit. An almost-linear activation function defined by the piecewise function 0 if x < 0 else x. The nonlinearity of this function allows the neural network to approximate nonlinear functions. Since this function is so computationally efficient, it is essentially standard across all kinds of neural networks. 
+`ReLU`: Short for Rectified Linear Unit. An almost-linear activation function defined by the piecewise function 0 if x < 0 else x. The nonlinearity of this function allows the neural network to approximate nonlinear functions. Since this function is so computationally efficient, it is essentially standard across all kinds of neural networks.
 
 `Sigmoid`: Another activation function defined by 1/(1+e^-x). This function is also popular, but not as useful as ReLU since it is less computationally efficient.
 
-`Tanh`: Hyperbolic tangent function. 
+`Tanh`: Hyperbolic tangent function.
 
 `Add`: The vector addition operation.
 
 `Multiply`: The vector multiplication operation (dot product).
 
-`Model`: 
+`Model`:
