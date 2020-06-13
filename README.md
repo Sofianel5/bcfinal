@@ -70,4 +70,4 @@ Fundamentally, an **ANN** is an optimization algorithm. Much like standard optim
 
 `Multiply`: The vector multiplication operation (dot product).
 
-`Model`:
+`Model`: The neural network
