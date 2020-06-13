@@ -57,6 +57,7 @@ Fundamentally, an **ANN** is an optimization algorithm. Much like standard optim
 `gen_data`: Downloads and shapes the data from MNIST, a popular dataset of handwriting images. Each image is a 28x28 matrix of pixel brightness values. The image is "flattened" into a one dimensional vector of size 784 when fed into the network.
 
 ### OOP method
+#### Many of these are loose ends. I wanted to make a better architecture than what was in `mnist_nn.py`, but it has an issue of getting stuck in a local minimum. If you want to run this, type `python3 train.py` into your terminal
 `ActivationFunction`: `forward` defines the output of the function, while `backward` defines the derivative multiplied by another differential.
 
 `ReLU`: Short for Rectified Linear Unit. An almost-linear activation function defined by the piecewise function 0 if x < 0 else x. The nonlinearity of this function allows the neural network to approximate nonlinear functions. Since this function is so computationally efficient, it is essentially standard across all kinds of neural networks.
